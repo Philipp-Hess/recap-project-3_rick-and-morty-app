@@ -25,8 +25,17 @@ async function fetchCharacters(){
   // .json() wandelt json in javascript Objekte um. 
   // await = wartet bis response.json() fertig ist. DANN legt er die Daten in Data ab
   const data = await response.json();
-  console.log(data.results);
-  console.log(data.results[11].gender);
+
+  // Wir verarbeiten Data.results (Data.results ist ein Array) - 
+  //das Wort arrayEntry bezieht sich auf jeden einzelnen Eintrag (der Befehl wird also bei 20 Einträgen 20 mal ausgeführt )
+  data.results.forEach(arrayEntry => {
+
+    // wir benutzen die function "createCharacterCard", die wir uns importiert haben
+    // und geben der Funktion arrayEntry mit
+    const newCard = createCharacterCard(arrayEntry);
+    cardContainer.append(newCard);
+
+  });
 
 }
 
