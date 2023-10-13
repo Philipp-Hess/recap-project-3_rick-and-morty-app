@@ -26,10 +26,12 @@ async function fetchCharacters(){
   // await = wartet bis response.json() fertig ist. DANN legt er die Daten in Data ab
   const data = await response.json();
 
+  //könnte man auch ohne machen, indem man direkt data.result.forEach macht
+  const charactersArray = data.results;
+
   // Wir verarbeiten Data.results (Data.results ist ein Array) - 
   //das Wort arrayEntry bezieht sich auf jeden einzelnen Eintrag (der Befehl wird also bei 20 Einträgen 20 mal ausgeführt )
-  data.results.forEach(arrayEntry => {
-
+  charactersArray.forEach(arrayEntry => {
     // wir benutzen die function "createCharacterCard", die wir uns importiert haben
     // und geben der Funktion arrayEntry mit
     const newCard = createCharacterCard(arrayEntry);
