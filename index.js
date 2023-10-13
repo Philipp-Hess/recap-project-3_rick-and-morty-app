@@ -14,3 +14,20 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+
+
+async function fetchCharacters(){
+  const url = "https://rickandmortyapi.com/api/character";
+  const response = await fetch(url);
+
+
+  // .json() wandelt json in javascript Objekte um. 
+  // await = wartet bis response.json() fertig ist. DANN legt er die Daten in Data ab
+  const data = await response.json();
+  console.log(data.results);
+  console.log(data.results[11].gender);
+
+}
+
+fetchCharacters();
