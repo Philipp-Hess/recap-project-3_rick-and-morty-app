@@ -20,6 +20,6 @@ export function createCharacterCard(cardData) {
         <dd class="card__info-description">${cardData.episode.length}</dd>
     </dl>
     </div>`;
-  console.log(newCard);
+
   return newCard;
 }
